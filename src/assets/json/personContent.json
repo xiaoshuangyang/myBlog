@@ -85,14 +85,12 @@
     {
       "content": [
         {
-          "title": "一、就这",
-          "li": "",
+          "title": "一、是什么",
           "p": [
             "本质上是优化高频率执行代码的一种手段",
             "如：浏览器的 resize、scroll、keypress、mousemove 等事件在触发时，会不断地调用绑定在事件上的回调函数，极大地浪费资源，降低前端性能",
             "为了优化体验，需要对这类事件进行调用次数的限制，对此我们就可以采用 防抖（debounce） 和 节流（throttle） 的方式来减少调用频率"
-          ],
-          "pre": ""
+          ]
         },
         {
           "title": "定义",
@@ -106,12 +104,10 @@
             "假设电梯有两种运行策略 <code>debounce<code/> 和 <code>throttle<code/>，超时设定为15秒，不考虑容量限制",
             "电梯第一个人进来后，15秒后准时运送一次，这是节流",
             "电梯第一个人进来后，等待15秒。如果过程中又有人进来，15秒等待重新计时，直到15秒后开始运送，这是防抖"
-          ],
-          "pre": ""
+          ]
         },
         {
           "title": "节流",
-          "li": "",
           "p": [
             "完成节流可以使用时间戳与定时器的写法",
             "使用时间戳写法，事件会立即执行，停止触发后没有办法再次执行"
@@ -119,16 +115,12 @@
           "pre": "function throttled1(fn, delay = 500) {\nlet oldtime = Date.now()\nreturn function (...args) {\nlet newtime = Date.now()\nif (newtime - oldtime >= delay) {\nfn.apply(null, args)\noldtime = Date.now()\n}\n}\n}"
         },
         {
-          "title": "",
-          "li": "",
           "p": [
             "使用定时器写法，delay毫秒后第一次执行，第二次事件停止触发后依然会再一次执行"
           ],
           "per": "function throttled2(fn, delay = 500) {\nlet timer = null\nreturn function (...args) {\nif (!timer) {\ntimer = setTimeout(() => {\nfn.apply(this, args)\ntimer = null\n}, delay);\n}\n}\n}"
         },
         {
-          "title": "",
-          "li": "",
           "p": [
             "可以将时间戳写法的特性与定时器写法的特性相结合，实现一个更加精确的节流。实现如下"
           ],
@@ -136,15 +128,12 @@
         },
         {
           "title": "防抖",
-          "li": "",
           "p": [
             "简单版本的实现"
           ],
           "pre": "function debounce(func, wait) {\nlet timeout;\nreturn function () {\nlet context = this; // 保存this指向\nlet args = arguments; // 拿到event对象\nclearTimeout(timeout)\ntimeout = setTimeout(function(){\nfunc.apply(context, args)\n}, wait);\n}\n}"
         },
         {
-          "title": "",
-          "li": "",
           "p": [
             "防抖如果需要立即执行，可加入第三个参数用于判断，实现如下："
           ],
@@ -158,25 +147,19 @@
           "li": [
             "都可以通过使用 setTimeout 实现",
             "目的都是，降低回调执行频率。节省计算资源"
-          ],
-          "pre": ""
+          ]
         },
         {
-          "title": "",
           "p": [
             "不同点："
           ],
           "li": [
             "函数防抖，在一段连续操作结束后，处理回调，利用clearTimeout和 setTimeout实现。函数节流，在一段连续操作中，每一段时间只执行一次，频率较高的事件中使用来提高性能",
             "函数防抖关注一定时间连续触发的事件，只在最后执行一次，而函数节流一段时间内只执行一次"
-          ],
-          "pre":""
+          ]
         },
         {
-          "title":"",
-          "p":"例如，都设置时间频率为500ms，在2秒时间内，频繁触发函数，节流，每隔 500ms 就执行一次。防抖，则不管调动多少次方法，在2s后，只会执行一次",
-          "li":"",
-          "pre":""
+          "p":["例如，都设置时间频率为500ms，在2秒时间内，频繁触发函数，节流，每隔 500ms 就执行一次。防抖，则不管调动多少次方法，在2s后，只会执行一次"]
         }
       ],
       "id": 2
@@ -185,13 +168,11 @@
       "content": [
         {
           "title": "一、是什么",
-          "li": "",
           "p": [
             "本质上是优化高频率执行代码的一种手段",
             "如：浏览器的 resize、scroll、keypress、mousemove 等事件在触发时，会不断地调用绑定在事件上的回调函数，极大地浪费资源，降低前端性能",
             "为了优化体验，需要对这类事件进行调用次数的限制，对此我们就可以采用 防抖（debounce） 和 节流（throttle） 的方式来减少调用频率"
-          ],
-          "pre": ""
+          ]
         },
         {
           "title": "定义",
@@ -205,12 +186,10 @@
             "假设电梯有两种运行策略 <code>debounce<code/> 和 <code>throttle<code/>，超时设定为15秒，不考虑容量限制",
             "电梯第一个人进来后，15秒后准时运送一次，这是节流",
             "电梯第一个人进来后，等待15秒。如果过程中又有人进来，15秒等待重新计时，直到15秒后开始运送，这是防抖"
-          ],
-          "pre": ""
+          ]
         },
         {
           "title": "节流",
-          "li": "",
           "p": [
             "完成节流可以使用时间戳与定时器的写法",
             "使用时间戳写法，事件会立即执行，停止触发后没有办法再次执行"
@@ -218,16 +197,12 @@
           "pre": "function throttled1(fn, delay = 500) {\nlet oldtime = Date.now()\nreturn function (...args) {\nlet newtime = Date.now()\nif (newtime - oldtime >= delay) {\nfn.apply(null, args)\noldtime = Date.now()\n}\n}\n}"
         },
         {
-          "title": "",
-          "li": "",
           "p": [
             "使用定时器写法，delay毫秒后第一次执行，第二次事件停止触发后依然会再一次执行"
           ],
           "per": "function throttled2(fn, delay = 500) {\nlet timer = null\nreturn function (...args) {\nif (!timer) {\ntimer = setTimeout(() => {\nfn.apply(this, args)\ntimer = null\n}, delay);\n}\n}\n}"
         },
         {
-          "title": "",
-          "li": "",
           "p": [
             "可以将时间戳写法的特性与定时器写法的特性相结合，实现一个更加精确的节流。实现如下"
           ],
@@ -235,15 +210,12 @@
         },
         {
           "title": "防抖",
-          "li": "",
           "p": [
             "简单版本的实现"
           ],
           "pre": "function debounce(func, wait) {\nlet timeout;\nreturn function () {\nlet context = this; // 保存this指向\nlet args = arguments; // 拿到event对象\nclearTimeout(timeout)\ntimeout = setTimeout(function(){\nfunc.apply(context, args)\n}, wait);\n}\n}"
         },
         {
-          "title": "",
-          "li": "",
           "p": [
             "防抖如果需要立即执行，可加入第三个参数用于判断，实现如下："
           ],
@@ -257,25 +229,19 @@
           "li": [
             "都可以通过使用 setTimeout 实现",
             "目的都是，降低回调执行频率。节省计算资源"
-          ],
-          "pre": ""
+          ]
         },
         {
-          "title": "",
           "p": [
             "不同点："
           ],
           "li": [
             "函数防抖，在一段连续操作结束后，处理回调，利用clearTimeout和 setTimeout实现。函数节流，在一段连续操作中，每一段时间只执行一次，频率较高的事件中使用来提高性能",
             "函数防抖关注一定时间连续触发的事件，只在最后执行一次，而函数节流一段时间内只执行一次"
-          ],
-          "pre":""
+          ]
         },
         {
-          "title":"",
-          "p":"例如，都设置时间频率为500ms，在2秒时间内，频繁触发函数，节流，每隔 500ms 就执行一次。防抖，则不管调动多少次方法，在2s后，只会执行一次",
-          "li":"",
-          "pre":""
+          "p":["例如，都设置时间频率为500ms，在2秒时间内，频繁触发函数，节流，每隔 500ms 就执行一次。防抖，则不管调动多少次方法，在2s后，只会执行一次"]
         }
       ],
       "id": 3
@@ -284,13 +250,11 @@
       "content": [
         {
           "title": "一、是什么",
-          "li": "",
           "p": [
             "本质上是优化高频率执行代码的一种手段",
             "如：浏览器的 resize、scroll、keypress、mousemove 等事件在触发时，会不断地调用绑定在事件上的回调函数，极大地浪费资源，降低前端性能",
             "为了优化体验，需要对这类事件进行调用次数的限制，对此我们就可以采用 防抖（debounce） 和 节流（throttle） 的方式来减少调用频率"
-          ],
-          "pre": ""
+          ]
         },
         {
           "title": "定义",
@@ -304,12 +268,10 @@
             "假设电梯有两种运行策略 <code>debounce<code/> 和 <code>throttle<code/>，超时设定为15秒，不考虑容量限制",
             "电梯第一个人进来后，15秒后准时运送一次，这是节流",
             "电梯第一个人进来后，等待15秒。如果过程中又有人进来，15秒等待重新计时，直到15秒后开始运送，这是防抖"
-          ],
-          "pre": ""
+          ]
         },
         {
           "title": "节流",
-          "li": "",
           "p": [
             "完成节流可以使用时间戳与定时器的写法",
             "使用时间戳写法，事件会立即执行，停止触发后没有办法再次执行"
@@ -317,16 +279,12 @@
           "pre": "function throttled1(fn, delay = 500) {\nlet oldtime = Date.now()\nreturn function (...args) {\nlet newtime = Date.now()\nif (newtime - oldtime >= delay) {\nfn.apply(null, args)\noldtime = Date.now()\n}\n}\n}"
         },
         {
-          "title": "",
-          "li": "",
           "p": [
             "使用定时器写法，delay毫秒后第一次执行，第二次事件停止触发后依然会再一次执行"
           ],
           "per": "function throttled2(fn, delay = 500) {\nlet timer = null\nreturn function (...args) {\nif (!timer) {\ntimer = setTimeout(() => {\nfn.apply(this, args)\ntimer = null\n}, delay);\n}\n}\n}"
         },
         {
-          "title": "",
-          "li": "",
           "p": [
             "可以将时间戳写法的特性与定时器写法的特性相结合，实现一个更加精确的节流。实现如下"
           ],
@@ -334,15 +292,12 @@
         },
         {
           "title": "防抖",
-          "li": "",
           "p": [
             "简单版本的实现"
           ],
           "pre": "function debounce(func, wait) {\nlet timeout;\nreturn function () {\nlet context = this; // 保存this指向\nlet args = arguments; // 拿到event对象\nclearTimeout(timeout)\ntimeout = setTimeout(function(){\nfunc.apply(context, args)\n}, wait);\n}\n}"
         },
         {
-          "title": "",
-          "li": "",
           "p": [
             "防抖如果需要立即执行，可加入第三个参数用于判断，实现如下："
           ],
@@ -356,25 +311,19 @@
           "li": [
             "都可以通过使用 setTimeout 实现",
             "目的都是，降低回调执行频率。节省计算资源"
-          ],
-          "pre": ""
+          ]
         },
         {
-          "title": "",
           "p": [
             "不同点："
           ],
           "li": [
             "函数防抖，在一段连续操作结束后，处理回调，利用clearTimeout和 setTimeout实现。函数节流，在一段连续操作中，每一段时间只执行一次，频率较高的事件中使用来提高性能",
             "函数防抖关注一定时间连续触发的事件，只在最后执行一次，而函数节流一段时间内只执行一次"
-          ],
-          "pre":""
+          ]
         },
         {
-          "title":"",
-          "p":"例如，都设置时间频率为500ms，在2秒时间内，频繁触发函数，节流，每隔 500ms 就执行一次。防抖，则不管调动多少次方法，在2s后，只会执行一次",
-          "li":"",
-          "pre":""
+          "p":["例如，都设置时间频率为500ms，在2秒时间内，频繁触发函数，节流，每隔 500ms 就执行一次。防抖，则不管调动多少次方法，在2s后，只会执行一次"]
         }
       ],
       "id": 4
@@ -383,13 +332,11 @@
       "content": [
         {
           "title": "一、是什么",
-          "li": "",
           "p": [
             "本质上是优化高频率执行代码的一种手段",
             "如：浏览器的 resize、scroll、keypress、mousemove 等事件在触发时，会不断地调用绑定在事件上的回调函数，极大地浪费资源，降低前端性能",
             "为了优化体验，需要对这类事件进行调用次数的限制，对此我们就可以采用 防抖（debounce） 和 节流（throttle） 的方式来减少调用频率"
-          ],
-          "pre": ""
+          ]
         },
         {
           "title": "定义",
@@ -403,12 +350,10 @@
             "假设电梯有两种运行策略 <code>debounce<code/> 和 <code>throttle<code/>，超时设定为15秒，不考虑容量限制",
             "电梯第一个人进来后，15秒后准时运送一次，这是节流",
             "电梯第一个人进来后，等待15秒。如果过程中又有人进来，15秒等待重新计时，直到15秒后开始运送，这是防抖"
-          ],
-          "pre": ""
+          ]
         },
         {
           "title": "节流",
-          "li": "",
           "p": [
             "完成节流可以使用时间戳与定时器的写法",
             "使用时间戳写法，事件会立即执行，停止触发后没有办法再次执行"
@@ -416,16 +361,12 @@
           "pre": "function throttled1(fn, delay = 500) {\nlet oldtime = Date.now()\nreturn function (...args) {\nlet newtime = Date.now()\nif (newtime - oldtime >= delay) {\nfn.apply(null, args)\noldtime = Date.now()\n}\n}\n}"
         },
         {
-          "title": "",
-          "li": "",
           "p": [
             "使用定时器写法，delay毫秒后第一次执行，第二次事件停止触发后依然会再一次执行"
           ],
           "per": "function throttled2(fn, delay = 500) {\nlet timer = null\nreturn function (...args) {\nif (!timer) {\ntimer = setTimeout(() => {\nfn.apply(this, args)\ntimer = null\n}, delay);\n}\n}\n}"
         },
         {
-          "title": "",
-          "li": "",
           "p": [
             "可以将时间戳写法的特性与定时器写法的特性相结合，实现一个更加精确的节流。实现如下"
           ],
@@ -433,15 +374,12 @@
         },
         {
           "title": "防抖",
-          "li": "",
           "p": [
             "简单版本的实现"
           ],
           "pre": "function debounce(func, wait) {\nlet timeout;\nreturn function () {\nlet context = this; // 保存this指向\nlet args = arguments; // 拿到event对象\nclearTimeout(timeout)\ntimeout = setTimeout(function(){\nfunc.apply(context, args)\n}, wait);\n}\n}"
         },
         {
-          "title": "",
-          "li": "",
           "p": [
             "防抖如果需要立即执行，可加入第三个参数用于判断，实现如下："
           ],
@@ -455,25 +393,19 @@
           "li": [
             "都可以通过使用 setTimeout 实现",
             "目的都是，降低回调执行频率。节省计算资源"
-          ],
-          "pre": ""
+          ]
         },
         {
-          "title": "",
           "p": [
             "不同点："
           ],
           "li": [
             "函数防抖，在一段连续操作结束后，处理回调，利用clearTimeout和 setTimeout实现。函数节流，在一段连续操作中，每一段时间只执行一次，频率较高的事件中使用来提高性能",
             "函数防抖关注一定时间连续触发的事件，只在最后执行一次，而函数节流一段时间内只执行一次"
-          ],
-          "pre":""
+          ]
         },
         {
-          "title":"",
-          "p":"例如，都设置时间频率为500ms，在2秒时间内，频繁触发函数，节流，每隔 500ms 就执行一次。防抖，则不管调动多少次方法，在2s后，只会执行一次",
-          "li":"",
-          "pre":""
+          "p":["例如，都设置时间频率为500ms，在2秒时间内，频繁触发函数，节流，每隔 500ms 就执行一次。防抖，则不管调动多少次方法，在2s后，只会执行一次"]
         }
       ],
       "id": 5
