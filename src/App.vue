@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header">
-      <router-link to="/">首页</router-link>
+      <router-link to="/">首页123</router-link>
     </div>
     <div class="main">
       <router-view></router-view>
