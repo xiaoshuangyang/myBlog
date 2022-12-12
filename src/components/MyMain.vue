@@ -45,7 +45,6 @@ const scroll = () => {
   data.endIndex = data.startIndex + data.showNum;
   data.startOffset = data.scrollTop - (data.scrollTop % data.itemHeight);
   data.showList = data.listAll.slice(data.startIndex, data.endIndex);
-  console.log(data.startOffset, data.scrollTop);
 };
 //设置鼠标进入时图片模糊
 const addimgBlur = (e) => {
