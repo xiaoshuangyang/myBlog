@@ -23,6 +23,7 @@ Sentry.init({
   // of transactions for performance monitoring.
   // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
+  release: process.env.SENTRY_VERSION || "0.0.1",
 });
 
 //引入组件
