@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@sentry/tracing": "^7.24.2",
+    "@sentry/vue": "^7.24.2",
     "codemirror-editor-vue3": "^2.1.7",
     "element-plus": "^2.2.18",
     "pinia": "^2.0.23",

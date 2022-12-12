@@ -11,6 +11,7 @@ getvisitNumber(message);
 //初始化评论数
 const getcommentsNumber = person.getcommentsNumber;
 getcommentsNumber(message);
+// console.log(window.a.b);
 </script>
 
 <template>
