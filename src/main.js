@@ -23,6 +23,7 @@ router.afterEach((to, form) => {
   Vnode.component.exposed.endloading();
 });
 
+// 只在生产环境中开启sentry，调试时可以先去掉
 const app = createApp(App);
 
 const pinia = createPinia();

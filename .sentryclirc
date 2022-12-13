@@ -1,0 +1,6 @@
+[auth]
+token=9b06fa0c6cb54e058348d865f1cc7a31859a9e6d47e04f519764fef9868c5f81
+ [defaults]
+ url=https://sentiry.io
+ org=myblog-pn
+ project=my-blog

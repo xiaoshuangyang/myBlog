@@ -83,8 +83,12 @@ onBeforeUnmount(() => {
     clearInterval(timer.value);
   }
 });
+const clickThrowError = () => {
+  throw new Error("抛出错误");
+};
 </script>
 <template>
+  <button @click="clickThrowError">clickThrowError</button>
   <div class="left">
     <div class="left_item_one">
       <img :src="imgAll" alt="" />
