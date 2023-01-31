@@ -88,7 +88,6 @@ const clickThrowError = () => {
 };
 </script>
 <template>
-  <button @click="clickThrowError">clickThrowError</button>
   <div class="left">
     <div class="left_item_one">
       <img :src="imgAll" alt="" />

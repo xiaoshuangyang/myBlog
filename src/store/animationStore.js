@@ -10,7 +10,7 @@ export const animationStore = defineStore("animatiom", {
     getanimatiomlistNum(state) {
       return state.animatiomList.length;
     },
-    //获取最新的两个个数据对象数组
+    //获取最新的两个数据对象数组
     getNewtimeList(state) {
       let list = [];
       state.animatiomList.forEach((element) => {

@@ -9,8 +9,24 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: () => import("../views/home.vue"), //.vue不可省略
+    component: () => import("../views/home.vue"),
   },
+  {
+    path: "/personalPage",
+    name: "personalPage",
+    component: () => import("../views/personalPage.vue"),
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("../components/login.vue"),
+  },
+  {
+    path: "/registered",
+    name: "registered",
+    component: () => import("../components/registered.vue"),
+  },
+
   {
     path: "/detail/:id?",
     name: "detail",

@@ -1,9 +1,9 @@
 import { defineStore } from "pinia";
-import { data } from "../assets/json/personContent.json";
-const list = JSON.parse(JSON.stringify(data));
+// import { data } from "../assets/json/personContent.json";
+// const list = JSON.parse(JSON.stringify(data));
 export const personContentStore = defineStore("personContent", {
   state: () => ({
-    data: list,
+    data: [],
   }),
   actions: {
     //根据id获取数据

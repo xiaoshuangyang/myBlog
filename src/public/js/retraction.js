@@ -1,5 +1,5 @@
 export default function retraction(a) {
-  let c = a.split("\n");
+  let c = a.split("\\n");
   let e = [];
   let g = [];
   let i = 0;

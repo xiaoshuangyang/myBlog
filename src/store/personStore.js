@@ -1,10 +1,8 @@
 import { defineStore } from "pinia";
-import { person } from "../assets/json/person.json";
-const list = JSON.parse(JSON.stringify(person));
 export const personStore = defineStore("person", {
   state: () => ({
     //文章数据
-    presonList: list,
+    presonList: [],
     //浏览数
     visitNum: [],
     //评论数
@@ -138,13 +136,20 @@ export const personStore = defineStore("person", {
     //获取浏览数前三的数据对象数组
     getViewThridList(num) {
       let list = [];
-      this.presonList.forEach((element) => {
+      let data = [];
+      this.visitNum.forEach((element) => {
         list.push(element);
       });
+      // console.log(this.visitNum);
       list.sort((a, b) => {
-        return b.visitNumber - a.visitNumber;
+        return b.num - a.num;
       });
-      return list.slice(0, num);
+      list.slice(0, num).forEach((a, b) => {
+        let id = a.id;
+        let obj = this.presonList.find((element) => element.id == id);
+        data.push(obj);
+      });
+      return data;
     },
   },
 });

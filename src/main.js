@@ -6,6 +6,8 @@ import piniaPersist from "pinia-plugin-persist";
 import Element from "element-plus";
 import "element-plus/dist/index.css";
 import "./public/font-awesome-4.7.0/css/font-awesome.min.css";
+import { ElMessage } from "element-plus";
+
 //引入组件
 import loadingBar from "./components/loadingBar.vue";
 //创建虚拟dom并挂载到body中
@@ -16,7 +18,16 @@ render(Vnode, document.body);
 //跳转之前(全局钩子函数)
 router.beforeEach((to, form, next) => {
   Vnode.component.exposed.startloading();
-  next();
+  if (to.path == "/personalPage") {
+    if (sessionStorage.getItem("user")) {
+      next();
+    } else {
+      ElMessage.error("请先登录");
+      next("/login");
+    }
+  } else {
+    next();
+  }
 });
 // 跳转之后
 router.afterEach((to, form) => {
